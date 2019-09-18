@@ -1,16 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 import M from "materialize-css/dist/js/materialize.min.js";
 
-const EditLogModal = () => {
+import { updateLog } from "../../actions/logActions";
+
+const EditLogModal = ({ current, updateLog }) => {
+  const ref = useRef();
+
   const [message, setMessage] = useState("");
   const [attention, setAttention] = useState(false);
   const [tech, setTech] = useState("");
+
+  useEffect(() => {
+    if (current) {
+      setMessage(current.message);
+      setAttention(current.attention);
+      setTech(current.tech);
+      ref.current.select();
+    }
+  }, [current]);
 
   const onSubmit = () => {
     if (message === "" || tech === "") {
       M.toast({ html: "Пожалуйста заполните все поля!" });
     } else {
-      console.log(message, tech, attention);
+      const updateLogItem = {
+        id: current.id,
+        message,
+        tech,
+        attention,
+        date: new Date()
+      };
+
+      updateLog(updateLogItem);
+
+      M.toast({ html: `Пользователь ${tech} только что обновил запись!` });
 
       // Clear fields
       setMessage("");
@@ -26,6 +52,7 @@ const EditLogModal = () => {
           <div className='input-field'>
             <input
               type='text'
+              ref={ref}
               name='message'
               value={message}
               onChange={e => setMessage(e.target.value)}
@@ -90,4 +117,16 @@ const modalStyle = {
   height: "75%"
 };
 
-export default EditLogModal;
+EditLogModal.propTypes = {
+  current: PropTypes.object,
+  updateLog: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  current: state.log.current
+});
+
+export default connect(
+  mapStateToProps,
+  { updateLog }
+)(EditLogModal);

@@ -3,7 +3,10 @@ import {
   SET_LOADING,
   LOGS_ERROR,
   ADD_LOG,
-  DELETE_LOG
+  DELETE_LOG,
+  SET_CURRENT,
+  CLEAR_CURRENT,
+  UPDATE_LOG
 } from "../actions/types";
 
 const initialState = {
@@ -14,23 +17,40 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  switch (action.type) {
+  const { type, payload } = action;
+
+  switch (type) {
     case GET_LOGS:
       return {
         ...state,
-        logs: action.payload,
+        logs: payload,
         loading: false
       };
     case ADD_LOG:
       return {
         ...state,
-        logs: [...state.logs, action.payload],
+        logs: [...state.logs, payload],
         loading: false
+      };
+    case SET_CURRENT:
+      return {
+        ...state,
+        current: payload
+      };
+    case CLEAR_CURRENT:
+      return {
+        ...state,
+        current: null
+      };
+    case UPDATE_LOG:
+      return {
+        ...state,
+        logs: state.logs.map(log => (log.id === payload.id ? payload : log))
       };
     case DELETE_LOG:
       return {
         ...state,
-        logs: state.logs.filter(log => log.id !== action.payload),
+        logs: state.logs.filter(log => log.id !== payload),
         loading: false
       };
     case SET_LOADING:
@@ -39,10 +59,10 @@ export default (state = initialState, action) => {
         loading: true
       };
     case LOGS_ERROR:
-      console.error("action.payload :", action.payload);
+      console.error("payload :", payload);
       return {
         ...state,
-        error: action.payload
+        error: payload
       };
     default:
       return state;

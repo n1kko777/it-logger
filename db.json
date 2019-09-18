@@ -1,5 +1,20 @@
 {
-  "logs": [],
+  "logs": [
+    {
+      "id": 1,
+      "message": "Важное сообщение",
+      "tech": "John Doe",
+      "attention": false,
+      "date": "2019-09-18T06:24:37.688Z"
+    },
+    {
+      "id": 2,
+      "message": "Что-то интересное",
+      "tech": "Nikita Tarasov",
+      "attention": true,
+      "date": "2019-09-18T06:17:43.326Z"
+    }
+  ],
   "techs": [
     {
       "id": 1,
