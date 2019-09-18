@@ -1,25 +1,11 @@
 {
   "logs": [
     {
-      "id": 1,
-      "message": "Changed memory on workstation 050",
+      "message": "Какое то важное сообщение",
+      "tech": "Nikita Tarasov",
       "attention": true,
-      "date": "03-02-2019 23:58",
-      "tech": "Nikita Tarasov"
-    },
-    {
-      "id": 2,
-      "message": "Changed hard drive on workstation 005",
-      "attention": false,
-      "date": "03-02-2019",
-      "tech": "Sam Smith"
-    },
-    {
-      "id": 3,
-      "message": "Workstation 007 not posting",
-      "attention": false,
-      "date": "03-02-2019",
-      "tech": "John Doe"
+      "date": "2019-09-18T03:41:40.332Z",
+      "id": 1
     }
   ],
   "techs": [
