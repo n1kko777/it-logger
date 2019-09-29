@@ -20,6 +20,13 @@
       "attention": false,
       "date": "2019-09-29T14:06:43.394Z",
       "id": 3
+    },
+    {
+      "message": "Какое то мообщение",
+      "tech": "undefined undefined",
+      "attention": false,
+      "date": "2019-09-29T15:31:48.678Z",
+      "id": 4
     }
   ],
   "techs": [
@@ -37,6 +44,11 @@
       "id": 3,
       "firstName": "Nikita",
       "lastName": "Tarasov"
+    },
+    {
+      "firstName": "Grah",
+      "lastName": "Helicon",
+      "id": 4
     }
   ]
 }
