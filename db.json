@@ -20,13 +20,6 @@
       "attention": false,
       "date": "2019-09-29T14:06:43.394Z",
       "id": 3
-    },
-    {
-      "message": "Какое то мообщение",
-      "tech": "undefined undefined",
-      "attention": false,
-      "date": "2019-09-29T15:31:48.678Z",
-      "id": 4
     }
   ],
   "techs": [
@@ -34,11 +27,6 @@
       "id": 1,
       "firstName": "John",
       "lastName": "Doe"
-    },
-    {
-      "id": 2,
-      "firstName": "Sam",
-      "lastName": "Smith"
     },
     {
       "id": 3,
