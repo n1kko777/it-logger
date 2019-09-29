@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import M from "materialize-css/dist/js/materialize.min.js";
-
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-
+import TechSelectOption from "../techs/TechSelectOption";
 import { addLog } from "../../actions/logActions";
+
+import M from "materialize-css/dist/js/materialize.min.js";
 
 const AddLogModal = ({ addLog }) => {
   const [message, setMessage] = useState("");
@@ -62,9 +62,7 @@ const AddLogModal = ({ addLog }) => {
               <option value='' disabled>
                 Выберите специалиста
               </option>
-              <option value='Nikita Tarasov'>Nikita Tarasov</option>
-              <option value='John Doe'>John Doe</option>
-              <option value='Sam Smith'>Sam Smith</option>
+              <TechSelectOption />
             </select>
           </div>
         </div>
