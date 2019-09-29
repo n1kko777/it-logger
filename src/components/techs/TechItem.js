@@ -1,8 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { deleteTech } from "../../actions/techAction";
-import M from "materialize-css/dist/js/materialize.min.js";
-
 import PropTypes from "prop-types";
 
 const TechItem = ({ tech, deleteTech }) => {
@@ -11,8 +9,7 @@ const TechItem = ({ tech, deleteTech }) => {
   const onDeleteTech = e => {
     e.preventDefault();
 
-    deleteTech(id);
-    M.toast({ html: `Пользователь ${firstName} ${lastName} удален!` });
+    deleteTech(tech);
   };
 
   return (

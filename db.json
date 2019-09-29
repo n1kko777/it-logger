@@ -1,25 +1,18 @@
 {
   "logs": [
     {
-      "id": 1,
-      "message": "Важное сообщение",
-      "tech": "John Doe",
-      "attention": false,
-      "date": "2019-09-18T06:24:37.688Z"
-    },
-    {
-      "id": 2,
-      "message": "Что-то интересное",
-      "tech": "Nikita Tarasov",
-      "attention": true,
-      "date": "2019-09-18T06:17:43.326Z"
-    },
-    {
       "message": "Something interesting",
       "tech": "Nikita Tarasov",
       "attention": false,
       "date": "2019-09-29T14:06:43.394Z",
       "id": 3
+    },
+    {
+      "id": 4,
+      "message": "Все получилось!!",
+      "tech": "Nikita Tarasov",
+      "attention": true,
+      "date": "2019-09-29T16:09:43.275Z"
     }
   ],
   "techs": [
@@ -32,11 +25,6 @@
       "id": 3,
       "firstName": "Nikita",
       "lastName": "Tarasov"
-    },
-    {
-      "firstName": "Grah",
-      "lastName": "Helicon",
-      "id": 4
     }
   ]
 }

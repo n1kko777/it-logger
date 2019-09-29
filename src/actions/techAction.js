@@ -5,6 +5,7 @@ import {
   SET_LOADING,
   TECHS_ERROR
 } from "./types";
+import M from "materialize-css/dist/js/materialize.min.js";
 
 // Get techs fron server
 export const getTechs = () => async dispatch => {
@@ -44,6 +45,10 @@ export const addTech = tech => async dispatch => {
       type: ADD_TECH,
       payload: data
     });
+
+    M.toast({
+      html: `Пользователь ${tech.firstName} ${tech.lastName} добавлен!`
+    });
   } catch (error) {
     dispatch({
       type: TECHS_ERROR,
@@ -53,7 +58,7 @@ export const addTech = tech => async dispatch => {
 };
 
 // Delete tech to server
-export const deleteTech = id => async dispatch => {
+export const deleteTech = ({ firstName, lastName, id }) => async dispatch => {
   try {
     setLoading();
 
@@ -65,6 +70,7 @@ export const deleteTech = id => async dispatch => {
       type: DELETE_TECH,
       payload: id
     });
+    M.toast({ html: `Пользователь ${firstName} ${lastName} удален!` });
   } catch (error) {
     dispatch({
       type: DELETE_TECH,

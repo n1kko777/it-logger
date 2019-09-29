@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import TechSelectOption from "../techs/TechSelectOption";
 import { addLog } from "../../actions/logActions";
-
 import M from "materialize-css/dist/js/materialize.min.js";
 
 const AddLogModal = ({ addLog }) => {
@@ -22,9 +21,7 @@ const AddLogModal = ({ addLog }) => {
         date: new Date()
       };
 
-      addLog(newLog);
-
-      M.toast({ html: `Пользователь ${tech} только что добавил запись!` });
+      addLog(newLog, tech);
 
       // Clear fields
       setMessage("");

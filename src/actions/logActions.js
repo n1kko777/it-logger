@@ -9,6 +9,7 @@ import {
   UPDATE_LOG,
   SEARCH_LOGS
 } from "./types";
+import M from "materialize-css/dist/js/materialize.min.js";
 
 // Get logs from server
 export const getLogs = () => async dispatch => {
@@ -31,7 +32,7 @@ export const getLogs = () => async dispatch => {
 };
 
 // Add log
-export const addLog = log => async dispatch => {
+export const addLog = (log, tech) => async dispatch => {
   try {
     setLoading();
 
@@ -48,6 +49,8 @@ export const addLog = log => async dispatch => {
       type: ADD_LOG,
       payload: data
     });
+
+    M.toast({ html: `Пользователь ${tech} только что добавил запись!` });
   } catch (error) {
     dispatch({
       type: LOGS_ERROR,
@@ -69,6 +72,8 @@ export const deleteLog = id => async dispatch => {
       type: DELETE_LOG,
       payload: id
     });
+
+    M.toast({ html: "Запись удалена" });
   } catch (error) {
     dispatch({
       type: LOGS_ERROR,
@@ -78,7 +83,7 @@ export const deleteLog = id => async dispatch => {
 };
 
 // Update log on server
-export const updateLog = log => async dispatch => {
+export const updateLog = (log, tech) => async dispatch => {
   try {
     setLoading();
 
@@ -96,6 +101,8 @@ export const updateLog = log => async dispatch => {
       type: UPDATE_LOG,
       payload: data
     });
+
+    M.toast({ html: `Пользователь ${tech} только что обновил запись!` });
   } catch (err) {
     dispatch({
       type: LOGS_ERROR,

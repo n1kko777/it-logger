@@ -13,7 +13,6 @@ const AddTechModal = ({ addTech }) => {
       M.toast({ html: "Пожалуйста заполните все поля!" });
     } else {
       addTech({ firstName, lastName });
-      M.toast({ html: `Пользователь ${firstName} ${lastName} добавлен!` });
 
       // Clear fields
       setFirstname("");

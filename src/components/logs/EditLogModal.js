@@ -35,9 +35,7 @@ const EditLogModal = ({ current, updateLog }) => {
         date: new Date()
       };
 
-      updateLog(updateLogItem);
-
-      M.toast({ html: `Пользователь ${tech} только что обновил запись!` });
+      updateLog(updateLogItem, tech);
 
       // Clear fields
       setMessage("");

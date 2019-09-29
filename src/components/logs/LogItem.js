@@ -5,13 +5,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { deleteLog, setCurrent } from "../../actions/logActions";
 
-import M from "materialize-css/dist/js/materialize.min.js";
-
 const LogItem = ({ log, deleteLog, setCurrent }) => {
   const onDelete = () => {
     deleteLog(log.id);
-
-    M.toast({ html: "Запись удалена" });
   };
 
   return (
